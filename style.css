@@ -175,6 +175,33 @@ body {
 }
 
 
+/* ===== EFECTO REAL DE PASO DE HOJA ===== */
+
+/* Página que se va hacia atrás */
+.page.prev {
+  transform: rotateY(-180deg) translateZ(1px);
+  opacity: 0;
+  z-index: 1;
+  box-shadow:
+    -25px 0 35px rgba(0,0,0,0.35);
+}
+
+/* Página activa (frontal) */
+.page.active {
+  transform: rotateY(0deg);
+  opacity: 1;
+  z-index: 5;
+  box-shadow:
+    -10px 0 18px rgba(0,0,0,0.15);
+}
+
+/* Página que viene (anticipación visual) */
+.page:not(.active):not(.prev) {
+  transform: rotateY(12deg);
+  opacity: 0;
+  z-index: 0;
+}
+
 
 
 /* ===== WHATSAPP ICON PREMIUM ===== */
@@ -362,3 +389,25 @@ body {
 
 
 
+/* ===== AJUSTE MOBILE PARA BORDE + FLIP ===== */
+@media (max-width: 768px) {
+
+  .book {
+    height: 94vh;
+    padding-top: 80px;
+    padding-bottom: 140px;
+  }
+
+  .page {
+    inset: 8px; /* 🔥 da espacio al borde eléctrico */
+    border-radius: 20px;
+  }
+
+  .page::after {
+    border-radius: 20px;
+  }
+
+  .page img {
+    padding: 4px;
+  }
+}

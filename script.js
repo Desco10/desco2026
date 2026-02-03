@@ -2,6 +2,8 @@ const pages = document.querySelectorAll('.page');
 const counter = document.getElementById('pageCounter');
 const whatsappBtn = document.getElementById('whatsappBtn');
 const book = document.querySelector('.book');
+const pageSound = document.getElementById('pageSound');
+
 
 let current = 0;
 const total = pages.length;
@@ -12,6 +14,12 @@ let zoomOpen = false;
    ACTUALIZAR PÁGINAS
 ========================== */
 function updatePages() {
+  if (pageSound) {
+  pageSound.currentTime = 0;
+  pageSound.volume = 0.35; // 🔥 suave, elegante
+  pageSound.play();
+}
+
   pages.forEach((page, index) => {
     page.classList.remove('active', 'prev');
 
@@ -25,7 +33,7 @@ function updatePages() {
 
   if (whatsappBtn) {
     const msg = encodeURIComponent(
-      `Hola 👋 estoy interesado en los productos del catálogo Desco, página ${current + 1}`
+      `Hola 👋 Como esta ? Es de mi interes los productos del catálogo Desco, página ${current + 1}`
     );
     whatsappBtn.href = `https://wa.me/573245961645?text=${msg}`;
   }
