@@ -299,3 +299,51 @@ body {
     right: 52px;
   }
 }
+
+
+
+/* ================= AJUSTES SOLO PC Y TABLET ================= */
+@media (min-width: 768px) {
+
+  /* SUBIR HEADER (REAL, SIN DEFORMAR) */
+  .global-header {
+    top: 8px; /* más arriba que antes */
+  }
+
+  /* BAJAR EL CONTENIDO DEL BOOK PARA QUE NO INVADE */
+  .book {
+    padding-top: 130px; /* separa el book del header */
+  }
+
+  /* BAJAR FOOTER PARA QUE NO ENTRE EN LA IMAGEN */
+  .global-footer {
+    bottom: 36px;
+  }
+
+  /* ACERCAR WHATSAPP AL BOOK */
+  .whatsapp-icon {
+    right: 42px;
+    bottom: 95px;
+  }
+}
+
+/* ================= AJUSTE FINO SOLO PC ================= */
+@media (min-width: 1024px) {
+
+  .global-header {
+    top: 4px; /* aún más arriba en PC */
+  }
+
+  .book {
+    padding-top: 140px;
+  }
+
+  .global-footer {
+    bottom: 28px;
+  }
+
+  .whatsapp-icon {
+    right: 48px;
+    bottom: 105px;
+  }
+}
