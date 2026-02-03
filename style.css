@@ -12,7 +12,6 @@ body {
   color: #080808;
 }
 
-
 /* CONTADOR */
 .counter {
   position: fixed;
@@ -33,14 +32,9 @@ body {
   height: 92vh;
   margin: auto;
   perspective: 2000px;
-}
-
-.book {
   padding-top: 70px;
   padding-bottom: 120px;
 }
-
-
 
 /* PÁGINAS */
 .page {
@@ -52,102 +46,6 @@ body {
   transition: transform 0.8s ease, opacity 0.4s;
   backface-visibility: hidden;
   opacity: 0;
-}
-
-/* ACTIVA */
-.page.active {
-  transform: rotateY(0deg);
-  opacity: 1;
-  z-index: 5;
-}
-
-/* ANTERIOR */
-.page.prev {
-  transform: rotateY(-180deg);
-  opacity: 0;
-  z-index: 1;
-}
-
-/* IMAGEN */
-.page img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  cursor: zoom-in;
-}
-
-/* NAVEGACIÓN */
-.nav {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(254, 252, 252, 0);
-  border: none;
-  color: rgb(18, 17, 17);
-  font-size: 24px;
-  padding: 14px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.nav.prev { left: 10px; }
-.nav.next { right: 10px; }
-
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #25d366;
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  z-index: 10;
-}
-
-/* ZOOM */
-.zoom {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-}
-
-.zoom.active {
-  display: flex;
-}
-
-.zoom img {
-  max-width: 95%;
-  max-height: 95%;
-}
-
-#zoomClose {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-
-
-
-/* ===== MARCO CON LUZ ANIMADA ===== */
-/* ===== MARCO ELECTRICO LIMPIO (SIN LINEAS GIRANDO) ===== */
-.page {
-  position: absolute;
-  inset: 0;
   border-radius: 22px;
   overflow: hidden;
   box-shadow:
@@ -155,7 +53,7 @@ body {
     0 0 18px rgba(0,255,255,0.35);
 }
 
-/* Flicker eléctrico sutil SOLO EN EL BORDE */
+/* BORDE ELÉCTRICO */
 .page::after {
   content: "";
   position: absolute;
@@ -174,37 +72,54 @@ body {
   to { opacity: 0.5; }
 }
 
-
-/* ===== EFECTO REAL DE PASO DE HOJA ===== */
-
-/* Página que se va hacia atrás */
-.page.prev {
-  transform: rotateY(-180deg) translateZ(1px);
-  opacity: 0;
-  z-index: 1;
-  box-shadow:
-    -25px 0 35px rgba(0,0,0,0.35);
-}
-
-/* Página activa (frontal) */
+/* ESTADOS FLIP */
 .page.active {
   transform: rotateY(0deg);
   opacity: 1;
   z-index: 5;
-  box-shadow:
-    -10px 0 18px rgba(0,0,0,0.15);
+  box-shadow: -10px 0 18px rgba(0,0,0,0.15);
 }
 
-/* Página que viene (anticipación visual) */
+.page.prev {
+  transform: rotateY(-180deg) translateZ(1px);
+  opacity: 0;
+  z-index: 1;
+  box-shadow: -25px 0 35px rgba(0,0,0,0.35);
+}
+
 .page:not(.active):not(.prev) {
   transform: rotateY(12deg);
   opacity: 0;
   z-index: 0;
 }
 
+/* IMAGEN */
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+}
 
+/* NAVEGACIÓN */
+.nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #111;
+  font-size: 24px;
+  padding: 14px;
+  cursor: pointer;
+  z-index: 10;
+}
 
-/* ===== WHATSAPP ICON PREMIUM ===== */
+.nav.prev { left: 10px; }
+.nav.next { right: 10px; }
+
+/* WHATSAPP ICON */
 .whatsapp-icon {
   position: fixed;
   bottom: 100px;
@@ -220,8 +135,6 @@ body {
   font-size: 30px;
   text-decoration: none;
   z-index: 20;
-  box-shadow:
-    0 0 0 rgba(37,211,102,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -232,37 +145,39 @@ body {
     0 0 40px rgba(37,211,102,0.4);
 }
 
-/* Pulso suave */
-.whatsapp-icon::after {
-  content: "";
+/* ZOOM */
+.zoom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.zoom.active { display: flex; }
+
+.zoom img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+#zoomClose {
   position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: rgba(37,211,102,0.4);
-  opacity: 0;
-  animation: pulse 2.5s infinite;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  cursor: pointer;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-}
-
-
-/* ===== HEADER GLOBAL ===== */
-/* ===== HEADER GLOBAL PREMIUM ===== */
+/* ===== HEADER GLOBAL ÚNICO (BASE) ===== */
 .global-header {
   position: fixed;
-  top: 50px;
+  top: 40px; /* MOBILE: se queda igual */
   left: 50%;
   transform: translateX(-50%);
-  width: min(520px, 92%);
+  width: min(420px, 92%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,127 +186,53 @@ body {
   pointer-events: none;
 }
 
-/* ===== LOGO · TITILEO SUAVE PROFESIONAL ===== */
-/* ===== LOGO · TAMAÑO + REDONDEADO PREMIUM ===== */
+/* LOGO */
 .global-logo {
-  height: clamp(46px, 7vw, 64px);   /* ⬅ AQUÍ CAMBIAS EL TAMAÑO */
-  border-radius: 14px;             /* ⬅ AQUÍ EL REDONDEADO */
-  padding: 6px;                    /* aire interno elegante */
+  height: clamp(46px, 7vw, 64px);
+  border-radius: 14px;
+  padding: 6px;
   background: rgba(255,255,255,0.85);
-
-  opacity: 0.95;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.18));
   animation: logoBreath 4.5s ease-in-out infinite;
-  will-change: transform, opacity, filter;
 }
 
-
-/* Animación breathing premium */
 @keyframes logoBreath {
-  0% {
-    transform: scale(1);
-    opacity: 0.85;
-    filter: drop-shadow(0 0 4px rgba(0,0,0,0.15));
-  }
-
-  50% {
-    transform: scale(1.045);
-    opacity: 1;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.25));
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0.85;
-    filter: drop-shadow(0 0 4px rgba(0,0,0,0.15));
-  }
+  0% { transform: scale(1); opacity: .85; }
+  50% { transform: scale(1.045); opacity: 1; }
+  100% { transform: scale(1); opacity: .85; }
 }
 
-
-/* TEXTO HEADER */
 .global-title {
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #111;
   opacity: 0.75;
 }
 
-
-/* ===== FOOTER GLOBAL ===== */
-/* ===== HEADER GLOBAL (CENTRADO AL LIBRO) ===== */
-.global-header {
-  position: fixed;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(420px, 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  z-index: 30;
-  pointer-events: none;
-}
-
-/* ===== FOOTER GLOBAL (MÁS CERCA A LA IMAGEN) ===== */
-/* ===== FOOTER GLOBAL EDITORIAL ===== */
-/* ===== FOOTER GLOBAL EDITORIAL (FUERA DEL BOOK) ===== */
-/* ===== FOOTER GLOBAL (FUERA DEL BOOK · RESPONSIVE REAL) ===== */
+/* FOOTER */
 .global-footer {
   position: fixed;
-  bottom: 60px;                /* ⬅ un poco más abajo */
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: min(420px, 90%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   z-index: 20;
   pointer-events: none;
-  text-align: center;
 }
 
-/* TEXTO FOOTER */
 .global-footer span {
-  font-family: "Inter", "Poppins", system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 500;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.55);
-  line-height: 1.4;
-
-  /* 🔥 CLAVE DEL ARREGLO */
-  max-width: 100%;
   display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;        /* máximo 2 líneas */
   overflow: hidden;
 }
 
-/* LÍNEA EDITORIAL SUTIL */
-.global-footer span::after {
-  content: "";
-  display: block;
-  margin: 8px auto 0;
-  width: 64%;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0,0,0,0.35),
-    transparent
-  );
-}
-
-
-
-
-/* ===== AJUSTE MOBILE PARA BORDE + FLIP ===== */
+/* ===== MOBILE (NO SE TOCA) ===== */
 @media (max-width: 768px) {
-
   .book {
     height: 94vh;
     padding-top: 80px;
@@ -399,76 +240,28 @@ body {
   }
 
   .page {
-    inset: 8px; /* 🔥 da espacio al borde eléctrico */
-    border-radius: 20px;
-  }
-
-  .page::after {
-    border-radius: 20px;
-  }
-
-  .page img {
-    padding: 4px;
+    inset: 8px;
   }
 }
 
-
-/* ================================
-   AJUSTES SOLO PARA TABLET Y PC
-   (NO AFECTA CELULAR)
-================================ */
-
-/* TABLET */
-@media (min-width: 768px) {
-
-  /* HEADER más arriba */
-  .global-header {
-    top: 20px;          /* antes estaba muy abajo */
-  }
-
-  /* FOOTER más abajo */
-  .global-footer {
-    bottom: 40px;       /* baja para no chocar con el book */
-  }
-}
-
-
-/* PC / PANTALLAS GRANDES */
-@media (min-width: 1024px) {
-
-  /* HEADER bien separado del libro */
-  .global-header {
-    top: 18px;          /* elegante, no invade */
-  }
-
-  /* FOOTER claramente fuera del book */
-  .global-footer {
-    bottom: 30px;       /* más abajo que en móvil */
-  }
-}
-
-/* ================================
-   HEADER MÁS ARRIBA (TABLET + PC)
-   MOBILE NO SE TOCA
-================================ */
-
-/* TABLET */
+/* ===== SOLO TABLET ===== */
 @media (min-width: 768px) {
   .global-header {
-    top: 6px;      /* ⬅️ súbelo bien */
+    top: 20px;
+  }
+
+  .global-footer {
+    bottom: 40px;
   }
 }
 
-/* PC */
+/* ===== SOLO PC ===== */
 @media (min-width: 1024px) {
   .global-header {
-    top: 4px;      /* ⬅️ aún más arriba */
+    top: 12px; /* 🔥 AQUÍ SE SUBE DEFINITIVAMENTE */
   }
-}
 
-/* PC GRANDES */
-@media (min-width: 1280px) {
-  .global-header {
-    top: 2px;      /* ⬅️ casi al borde, limpio */
+  .global-footer {
+    bottom: 30px;
   }
 }
