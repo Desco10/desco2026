@@ -27,7 +27,7 @@ function updatePages() {
     const msg = encodeURIComponent(
       `Hola 👋 estoy interesado en los productos del catálogo Desco, página ${current + 1}`
     );
-    whatsappBtn.href = `https://wa.me/573143416441?text=${msg}`;
+    whatsappBtn.href = `https://wa.me/573245961645?text=${msg}`;
   }
 }
 
