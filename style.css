@@ -289,15 +289,47 @@ body {
 
 
 /* ==========================
-   FIX WHATSAPP MOBILE
+   WHATSAPP MOBILE – FIX PRO
    ========================== */
 
 @media (max-width: 768px) {
 
   .whatsapp-icon {
-    right: 20px;      /* ⬅ lo llevamos más a la izquierda */
-    bottom: 90px;     /* mantiene aire con footer */
-    transform: none;  /* evita que se centre */
+    right: 20px;     /* ⬅ lo movemos a la izquierda */
+    bottom: 90px;
   }
 
+}
+/* ==========================
+   FIN WHATSAPP MOBILE – FIX PRO
+   ========================== */
+
+   /* ==========================
+   FIX REAL HEADER PC / TABLET
+   ========================== */
+
+/* TABLET */
+@media (min-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+
+  .global-header {
+    top: 6px !important;   /* 🔥 ahora sí sube */
+  }
+
+  .book {
+    padding-top: 40px;     /* 🔥 baja el libro, no el header */
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  .global-header {
+    top: 4px !important;   /* 🔥 bien arriba */
+  }
+
+  .book {
+    padding-top: 30px;     /* 🔥 espacio correcto */
+  }
 }
