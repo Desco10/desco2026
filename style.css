@@ -265,3 +265,39 @@ body {
     bottom: 30px;
   }
 }
+
+
+
+
+/* ==========================
+   FIX HEADER PC & TABLET nuevo 
+   ========================== */
+
+/* TABLET */
+@media (min-width: 768px) {
+  body .global-header {
+    top: 12px !important;   /* 🔥 ahora sí sube */
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  body .global-header {
+    top: 8px !important;    /* 🔥 bien arriba, no invade */
+  }
+}
+
+
+/* ==========================
+   FIX WHATSAPP MOBILE
+   ========================== */
+
+@media (max-width: 768px) {
+
+  .whatsapp-icon {
+    right: 20px;      /* ⬅ lo llevamos más a la izquierda */
+    bottom: 90px;     /* mantiene aire con footer */
+    transform: none;  /* evita que se centre */
+  }
+
+}
