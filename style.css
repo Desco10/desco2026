@@ -77,20 +77,17 @@ body {
   transform: rotateY(0deg);
   opacity: 1;
   z-index: 5;
-  box-shadow: -10px 0 18px rgba(0,0,0,0.15);
 }
 
 .page.prev {
   transform: rotateY(-180deg) translateZ(1px);
   opacity: 0;
   z-index: 1;
-  box-shadow: -25px 0 35px rgba(0,0,0,0.35);
 }
 
 .page:not(.active):not(.prev) {
   transform: rotateY(12deg);
   opacity: 0;
-  z-index: 0;
 }
 
 /* IMAGEN */
@@ -119,7 +116,9 @@ body {
 .nav.prev { left: 10px; }
 .nav.next { right: 10px; }
 
-/* WHATSAPP ICON */
+/* ==========================
+   WHATSAPP ICON (EFECTO REAL)
+   ========================== */
 .whatsapp-icon {
   position: fixed;
   bottom: 100px;
@@ -135,14 +134,30 @@ body {
   font-size: 30px;
   text-decoration: none;
   z-index: 20;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: whatsappPulse 2.6s infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .whatsapp-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
   box-shadow:
-    0 0 20px rgba(37,211,102,0.8),
-    0 0 40px rgba(37,211,102,0.4);
+    0 0 18px rgba(37,211,102,.8),
+    0 0 36px rgba(37,211,102,.4);
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(37,211,102,0.6);
+  }
+  70% {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(37,211,102,0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(37,211,102,0);
+  }
 }
 
 /* ZOOM */
@@ -158,23 +173,12 @@ body {
 
 .zoom.active { display: flex; }
 
-.zoom img {
-  max-width: 95%;
-  max-height: 95%;
-}
-
-#zoomClose {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-/* ===== HEADER GLOBAL ÚNICO (BASE) ===== */
+/* ==========================
+   HEADER GLOBAL (LIMPIO)
+   ========================== */
 .global-header {
   position: fixed;
-  top: 40px; /* MOBILE: se queda igual */
+  top: 40px; /* MOBILE */
   left: 50%;
   transform: translateX(-50%);
   width: min(420px, 92%);
@@ -184,29 +188,15 @@ body {
   gap: 14px;
   z-index: 30;
   pointer-events: none;
-}
-
-/* LOGO */
-.global-logo {
-  height: clamp(46px, 7vw, 64px);
-  border-radius: 14px;
-  padding: 6px;
-  background: rgba(255,255,255,0.85);
-  animation: logoBreath 4.5s ease-in-out infinite;
-}
-
-@keyframes logoBreath {
-  0% { transform: scale(1); opacity: .85; }
-  50% { transform: scale(1.045); opacity: 1; }
-  100% { transform: scale(1); opacity: .85; }
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 .global-title {
   font-size: 14px;
-  letter-spacing: 2px;
-  font-weight: 600;
+  letter-spacing: 1.6px;
+  font-weight: 500;
   text-transform: uppercase;
-  opacity: 0.75;
+  color: #6b6b6b;
 }
 
 /* FOOTER */
@@ -219,19 +209,19 @@ body {
   text-align: center;
   z-index: 20;
   pointer-events: none;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 .global-footer span {
   font-size: 13px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #7a7a7a;
 }
 
-/* ===== MOBILE (NO SE TOCA) ===== */
+/* ==========================
+   MOBILE (NO SE TOCA)
+   ========================== */
 @media (max-width: 768px) {
   .book {
     height: 94vh;
@@ -242,23 +232,31 @@ body {
   .page {
     inset: 8px;
   }
+
+  .whatsapp-icon {
+    right: 20px;
+  }
 }
 
-/* ===== SOLO TABLET ===== */
+/* ==========================
+   TABLET
+   ========================== */
 @media (min-width: 768px) {
   .global-header {
-    top: 20px;
-  }
-
-  .global-footer {
-    bottom: 40px;
+    top: 18px;
   }
 }
 
-/* ===== SOLO PC ===== */
+/* ==========================
+   PC (HEADER SUBIDO DE VERDAD)
+   ========================== */
 @media (min-width: 1024px) {
   .global-header {
-    top: 12px; /* 🔥 AQUÍ SE SUBE DEFINITIVAMENTE */
+    top: 6px;
+  }
+
+  .book {
+    padding-top: 40px;
   }
 
   .global-footer {
@@ -267,69 +265,69 @@ body {
 }
 
 
+/* =================================================
+   AJUSTE PROFESIONAL PC & TABLET (SIN TOCAR MOBILE)
+   ================================================= */
 
-
-/* ==========================
-   FIX HEADER PC & TABLET nuevo 
-   ========================== */
-
-/* TABLET */
+/* 1️⃣ LIBRO MÁS ABAJO EN PC Y TABLET (SOLUCIÓN REAL) */
 @media (min-width: 768px) {
-  body .global-header {
-    top: 12px !important;   /* 🔥 ahora sí sube */
-  }
-}
-
-/* PC */
-@media (min-width: 1024px) {
-  body .global-header {
-    top: 8px !important;    /* 🔥 bien arriba, no invade */
-  }
-}
-
-
-/* ==========================
-   WHATSAPP MOBILE – FIX PRO
-   ========================== */
-
-@media (max-width: 768px) {
-
-  .whatsapp-icon {
-    right: 20px;     /* ⬅ lo movemos a la izquierda */
-    bottom: 90px;
-  }
-
-}
-/* ==========================
-   FIN WHATSAPP MOBILE – FIX PRO
-   ========================== */
-
-   /* ==========================
-   FIX REAL HEADER PC / TABLET
-   ========================== */
-
-/* TABLET */
-@media (min-width: 768px) {
-  body {
-    padding-top: 0;
-  }
-
-  .global-header {
-    top: 6px !important;   /* 🔥 ahora sí sube */
-  }
-
   .book {
-    padding-top: 40px;     /* 🔥 baja el libro, no el header */
+    padding-top: 120px;   /* baja el contenido, no el header */
   }
 }
 
-/* PC */
 @media (min-width: 1024px) {
-  .global-header {
-    top: 4px !important;   /* 🔥 bien arriba */
-  }
-
   .book {
-    padding-top: 30px;     /* 🔥 espacio correcto */
+    padding-top: 140px;   /* PC: aún más aire */
   }
+}
+
+/* 2️⃣ HEADER LIMPIO (NO SE DEFORMA) */
+.global-logo {
+  animation: none;        /* ❌ quitamos animación del logo */
+  height: 52px;           /* tamaño fijo profesional */
+  padding: 4px;
+}
+
+.global-title {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #6b6b6b;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+}
+
+/* 3️⃣ FOOTER MÁS EDITORIAL */
+.global-footer span {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #777;
+  font-weight: 500;
+}
+
+/* =================================================
+   WHATSAPP – EFECTO EXPANSIÓN REAL (MOBILE + PC)
+   ================================================= */
+
+.whatsapp-icon {
+  animation: whatsappPulse 2.8s ease-out infinite;
+  will-change: transform, box-shadow;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37,211,102,0.45);
+  }
+  70% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 18px rgba(37,211,102,0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
+
+/* Hover solo refuerza (PC) */
+.whatsapp-icon:hover {
+  transform: scale(1.12);
 }
