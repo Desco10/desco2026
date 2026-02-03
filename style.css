@@ -411,3 +411,38 @@ body {
     padding: 4px;
   }
 }
+
+
+/* ================================
+   AJUSTES SOLO PARA TABLET Y PC
+   (NO AFECTA CELULAR)
+================================ */
+
+/* TABLET */
+@media (min-width: 768px) {
+
+  /* HEADER más arriba */
+  .global-header {
+    top: 20px;          /* antes estaba muy abajo */
+  }
+
+  /* FOOTER más abajo */
+  .global-footer {
+    bottom: 40px;       /* baja para no chocar con el book */
+  }
+}
+
+
+/* PC / PANTALLAS GRANDES */
+@media (min-width: 1024px) {
+
+  /* HEADER bien separado del libro */
+  .global-header {
+    top: 18px;          /* elegante, no invade */
+  }
+
+  /* FOOTER claramente fuera del book */
+  .global-footer {
+    bottom: 30px;       /* más abajo que en móvil */
+  }
+}
