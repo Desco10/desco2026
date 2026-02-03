@@ -323,7 +323,7 @@ body {
 /* ===== HEADER GLOBAL (CENTRADO AL LIBRO) ===== */
 .global-header {
   position: fixed;
-  top: 7px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: min(420px, 100%);
