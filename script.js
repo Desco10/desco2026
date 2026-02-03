@@ -14,11 +14,7 @@ let zoomOpen = false;
    ACTUALIZAR PÁGINAS
 ========================== */
 function updatePages() {
-  if (pageSound) {
-  pageSound.currentTime = 0;
-  pageSound.volume = 0.35; // 🔥 suave, elegante
-  pageSound.play();
-}
+  
 
   pages.forEach((page, index) => {
     page.classList.remove('active', 'prev');
@@ -38,6 +34,24 @@ function updatePages() {
     whatsappBtn.href = `https://wa.me/573245961645?text=${msg}`;
   }
 }
+
+
+
+  
+  function playPageSound() {
+    if (!pageSound) return;
+    pageSound.currentTime = 0;
+    pageSound.volume = 0.35; // suave, real
+    pageSound.play().catch(() => {});
+  
+  }
+  // 🔥 CONECTAMOS EL SONIDO AL CAMBIO DE PÁGINA
+  document.querySelectorAll(".nav").forEach(btn => {
+    btn.addEventListener("click", () => {
+      playPageSound();
+    });
+  });
+
 
 /* ==========================
    BOTONES
