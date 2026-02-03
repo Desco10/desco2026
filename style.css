@@ -72,7 +72,7 @@ body {
   to { opacity: 0.5; }
 }
 
-/* ESTADOS FLIP */
+/* FLIP */
 .page.active {
   transform: rotateY(0deg);
   opacity: 1;
@@ -80,7 +80,7 @@ body {
 }
 
 .page.prev {
-  transform: rotateY(-180deg) translateZ(1px);
+  transform: rotateY(-180deg);
   opacity: 0;
   z-index: 1;
 }
@@ -95,7 +95,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
   cursor: zoom-in;
 }
 
@@ -106,9 +105,7 @@ body {
   transform: translateY(-50%);
   background: transparent;
   border: none;
-  color: #111;
   font-size: 24px;
-  padding: 14px;
   cursor: pointer;
   z-index: 10;
 }
@@ -116,9 +113,7 @@ body {
 .nav.prev { left: 10px; }
 .nav.next { right: 10px; }
 
-/* ==========================
-   WHATSAPP ICON (EFECTO REAL)
-   ========================== */
+/* WHATSAPP ICON */
 .whatsapp-icon {
   position: fixed;
   bottom: 100px;
@@ -134,30 +129,30 @@ body {
   font-size: 30px;
   text-decoration: none;
   z-index: 20;
-  animation: whatsappPulse 2.6s infinite;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-icon:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
   box-shadow:
-    0 0 18px rgba(37,211,102,.8),
-    0 0 36px rgba(37,211,102,.4);
+    0 0 20px rgba(37,211,102,0.8),
+    0 0 40px rgba(37,211,102,0.4);
 }
 
-@keyframes whatsappPulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(37,211,102,0.6);
-  }
-  70% {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(37,211,102,0.5);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(37,211,102,0);
-  }
+/* pulso */
+.whatsapp-icon::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.4);
+  opacity: 0;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(.9); opacity: .6; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 /* ZOOM */
@@ -173,30 +168,48 @@ body {
 
 .zoom.active { display: flex; }
 
-/* ==========================
-   HEADER GLOBAL (LIMPIO)
-   ========================== */
+.zoom img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+/* HEADER */
 .global-header {
   position: fixed;
-  top: 40px; /* MOBILE */
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   width: min(420px, 92%);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   z-index: 30;
   pointer-events: none;
-  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* LOGO */
+.global-logo {
+  height: clamp(46px, 7vw, 64px);
+  border-radius: 14px;
+  padding: 6px;
+  background: rgba(255,255,255,0.85);
+  animation: logoFloat 5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .global-title {
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
   font-size: 14px;
-  letter-spacing: 1.6px;
+  letter-spacing: 2px;
   font-weight: 500;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #6a6a6a;
 }
 
 /* FOOTER */
@@ -209,20 +222,23 @@ body {
   text-align: center;
   z-index: 20;
   pointer-events: none;
-  font-family: "Inter", system-ui, sans-serif;
 }
 
 .global-footer span {
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
   font-size: 13px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: #7a7a7a;
+  color: #777;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* ==========================
-   MOBILE (NO SE TOCA)
-   ========================== */
+/* ================= MOBILE (NO SE TOCA) ================= */
 @media (max-width: 768px) {
+
   .book {
     height: 94vh;
     padding-top: 80px;
@@ -234,100 +250,52 @@ body {
   }
 
   .whatsapp-icon {
-    right: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    right: 16px;
+    bottom: 90px;
   }
 }
 
-/* ==========================
-   TABLET
-   ========================== */
+/* ================= TABLET ================= */
 @media (min-width: 768px) {
-  .global-header {
-    top: 18px;
-  }
-}
 
-/* ==========================
-   PC (HEADER SUBIDO DE VERDAD)
-   ========================== */
-@media (min-width: 1024px) {
   .global-header {
-    top: 6px;
+    top: 22px;
   }
 
   .book {
-    padding-top: 40px;
+    padding-top: 95px;
+  }
+
+  .global-footer {
+    bottom: 42px;
+  }
+
+  .whatsapp-icon {
+    bottom: 110px;
+    right: 44px;
+  }
+}
+
+/* ================= PC ================= */
+@media (min-width: 1024px) {
+
+  .global-header {
+    top: 16px;
+  }
+
+  .book {
+    padding-top: 105px;
   }
 
   .global-footer {
     bottom: 30px;
   }
-}
 
-
-/* =================================================
-   AJUSTE PROFESIONAL PC & TABLET (SIN TOCAR MOBILE)
-   ================================================= */
-
-/* 1️⃣ LIBRO MÁS ABAJO EN PC Y TABLET (SOLUCIÓN REAL) */
-@media (min-width: 768px) {
-  .book {
-    padding-top: 120px;   /* baja el contenido, no el header */
+  .whatsapp-icon {
+    bottom: 120px;
+    right: 52px;
   }
-}
-
-@media (min-width: 1024px) {
-  .book {
-    padding-top: 140px;   /* PC: aún más aire */
-  }
-}
-
-/* 2️⃣ HEADER LIMPIO (NO SE DEFORMA) */
-.global-logo {
-  animation: none;        /* ❌ quitamos animación del logo */
-  height: 52px;           /* tamaño fijo profesional */
-  padding: 4px;
-}
-
-.global-title {
-  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: #6b6b6b;
-  font-weight: 500;
-  letter-spacing: 1.6px;
-}
-
-/* 3️⃣ FOOTER MÁS EDITORIAL */
-.global-footer span {
-  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: #777;
-  font-weight: 500;
-}
-
-/* =================================================
-   WHATSAPP – EFECTO EXPANSIÓN REAL (MOBILE + PC)
-   ================================================= */
-
-.whatsapp-icon {
-  animation: whatsappPulse 2.8s ease-out infinite;
-  will-change: transform, box-shadow;
-}
-
-@keyframes whatsappPulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37,211,102,0.45);
-  }
-  70% {
-    transform: scale(1.08);
-    box-shadow: 0 0 0 18px rgba(37,211,102,0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37,211,102,0);
-  }
-}
-
-/* Hover solo refuerza (PC) */
-.whatsapp-icon:hover {
-  transform: scale(1.12);
 }
