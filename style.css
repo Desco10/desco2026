@@ -360,3 +360,147 @@ body {
 }
 
 
+
+
+/* =========================
+   RESPONSIVE GLOBAL
+   ========================= */
+
+/* Evita deformaciones */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   DESKTOP GRANDE (≥1200px)
+   ========================= */
+@media (min-width: 1200px) {
+
+  .book {
+    max-width: 520px;
+    height: 90vh;
+  }
+
+  .page img {
+    object-fit: contain;
+  }
+
+  .whatsapp-icon {
+    bottom: 90px;
+    right: 60px;
+  }
+
+  .counter {
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   LAPTOP / TABLET (768px–1199px)
+   ========================= */
+@media (max-width: 1199px) {
+
+  .book {
+    max-width: 460px;
+    height: 92vh;
+  }
+
+  .page img {
+    object-fit: contain;
+  }
+
+  .nav {
+    font-size: 22px;
+    padding: 12px;
+  }
+}
+
+/* =========================
+   CELULARES GRANDES (≤768px)
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow: hidden;
+  }
+
+  .book {
+    max-width: 100%;
+    height: 94vh;
+    padding-top: 60px;
+    padding-bottom: 110px;
+  }
+
+  .page {
+    border-radius: 18px;
+  }
+
+  .page img {
+    object-fit: contain;
+  }
+
+  .nav {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .nav.prev {
+    left: 4px;
+  }
+
+  .nav.next {
+    right: 4px;
+  }
+
+  .counter {
+    top: 10px;
+    right: 10px;
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+
+  .whatsapp-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+    bottom: 85px;
+    right: 18px;
+  }
+
+  .global-header {
+    top: 8px;
+  }
+}
+
+/* =========================
+   CELULARES PEQUEÑOS (≤480px)
+   ========================= */
+@media (max-width: 480px) {
+
+  .book {
+    height: 96vh;
+    padding-top: 55px;
+    padding-bottom: 105px;
+  }
+
+  .page {
+    border-radius: 14px;
+  }
+
+  .nav {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .counter {
+    font-size: 12px;
+  }
+
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 80px;
+  }
+}
