@@ -446,3 +446,29 @@ body {
     bottom: 30px;       /* más abajo que en móvil */
   }
 }
+
+/* ================================
+   HEADER MÁS ARRIBA (TABLET + PC)
+   MOBILE NO SE TOCA
+================================ */
+
+/* TABLET */
+@media (min-width: 768px) {
+  .global-header {
+    top: 6px;      /* ⬅️ súbelo bien */
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  .global-header {
+    top: 4px;      /* ⬅️ aún más arriba */
+  }
+}
+
+/* PC GRANDES */
+@media (min-width: 1280px) {
+  .global-header {
+    top: 2px;      /* ⬅️ casi al borde, limpio */
+  }
+}
