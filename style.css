@@ -258,92 +258,47 @@ body {
   }
 }
 
-/* ================= TABLET ================= */
+
+
+/* ================= SOLUCIÓN DEFINITIVA PC / TABLET ================= */
 @media (min-width: 768px) {
 
+  /* NO tocamos el header: ya está bien */
   .global-header {
-    top: 22px;
+    top: 40px; /* se mantiene limpio */
   }
 
+  /* BAJAMOS EL LIBRO (ESTO ES LA CLAVE REAL) */
   .book {
-    padding-top: 95px;
+    margin-top: 120px;   /* ⬇️ empuja el contenido, NO el header */
+    padding-top: 0;      /* neutraliza conflictos */
   }
 
+  /* FOOTER MÁS ABAJO, FUERA DE LA IMAGEN */
   .global-footer {
-    bottom: 42px;
+    bottom: 30px;
   }
 
+  /* WHATSAPP MÁS CERCA DEL BOOK */
   .whatsapp-icon {
     bottom: 110px;
     right: 44px;
   }
 }
 
-/* ================= PC ================= */
+/* ================= SOLO PC ================= */
 @media (min-width: 1024px) {
 
-  .global-header {
-    top: 16px;
-  }
-
   .book {
-    padding-top: 105px;
+    margin-top: 140px;   /* ajuste fino PC */
   }
 
   .global-footer {
-    bottom: 30px;
+    bottom: 26px;
   }
 
   .whatsapp-icon {
     bottom: 120px;
     right: 52px;
-  }
-}
-
-
-
-/* ================= AJUSTES SOLO PC Y TABLET ================= */
-@media (min-width: 768px) {
-
-  /* SUBIR HEADER (REAL, SIN DEFORMAR) */
-  .global-header {
-    top: 8px; /* más arriba que antes */
-  }
-
-  /* BAJAR EL CONTENIDO DEL BOOK PARA QUE NO INVADE */
-  .book {
-    padding-top: 130px; /* separa el book del header */
-  }
-
-  /* BAJAR FOOTER PARA QUE NO ENTRE EN LA IMAGEN */
-  .global-footer {
-    bottom: 36px;
-  }
-
-  /* ACERCAR WHATSAPP AL BOOK */
-  .whatsapp-icon {
-    right: 42px;
-    bottom: 95px;
-  }
-}
-
-/* ================= AJUSTE FINO SOLO PC ================= */
-@media (min-width: 1024px) {
-
-  .global-header {
-    top: 4px; /* aún más arriba en PC */
-  }
-
-  .book {
-    padding-top: 140px;
-  }
-
-  .global-footer {
-    bottom: 28px;
-  }
-
-  .whatsapp-icon {
-    right: 48px;
-    bottom: 105px;
   }
 }
