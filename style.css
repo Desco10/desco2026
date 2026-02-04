@@ -314,13 +314,16 @@ body {
 }
 
 
-/* ===== FIX ESTRUCTURAL REAL · PC / TABLET ===== */
-@media (min-width: 768px) {
 
-  .book {
-    height: auto;          /* 🔑 rompe el conflicto */
-    min-height: 92vh;      /* mantiene proporción */
-    padding-top: 160px;    /* espacio real para header */
-    padding-bottom: 160px; /* espacio real para footer */
+/* ===== SUBIR HEADER · SOLO PC / TABLET · SIN TOCAR NADA MÁS ===== */
+@media (min-width: 768px) {
+  .global-header {
+    top: 0px;   /* súbelo fuera del contenido */
+  }
+}
+
+@media (min-width: 1024px) {
+  .global-header {
+    top: -8px;  /* un poco más arriba en PC grande */
   }
 }
