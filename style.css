@@ -309,15 +309,15 @@ body {
 }
 
 
-/* ===== HEADER · AJUSTE FINAL SOLO PC / TABLET ===== */
+/* ===== AJUSTE FINO: SOLO BAJAR EL LOGO (PC / TABLET) ===== */
 @media (min-width: 768px) {
-  .global-header {
-    transform: translateX(-50%) translateY(-32px);
+  .global-logo {
+    margin-top: 6px; /* baja el logo sin tocar el texto */
   }
 }
 
 @media (min-width: 1024px) {
-  .global-header {
-    transform: translateX(-50%) translateY(-42px);
+  .global-logo {
+    margin-top: 10px; /* un poco más en PC grande */
   }
 }
