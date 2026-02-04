@@ -260,28 +260,28 @@ body {
 
 
 
-/* ================= SOLUCIÓN DEFINITIVA PC / TABLET ================= */
+/* ================= AJUSTE FINO PC / TABLET ================= */
 @media (min-width: 768px) {
 
-  /* NO tocamos el header: ya está bien */
+  /* HEADER: sube un poco más */
   .global-header {
-    top: 40px; /* se mantiene limpio */
+    top: 28px;
   }
 
-  /* BAJAMOS EL LIBRO (ESTO ES LA CLAVE REAL) */
+  /* BOOK: subir ~1cm sin cortar */
   .book {
-    margin-top: 120px;   /* ⬇️ empuja el contenido, NO el header */
-    padding-top: 0;      /* neutraliza conflictos */
+    margin-top: 90px;     /* antes era demasiado */
+    padding-top: 0;
   }
 
-  /* FOOTER MÁS ABAJO, FUERA DE LA IMAGEN */
+  /* FOOTER: más abajo, fuera del contenido */
   .global-footer {
-    bottom: 30px;
+    bottom: 24px;
   }
 
-  /* WHATSAPP MÁS CERCA DEL BOOK */
+  /* WHATSAPP: más cerca del book */
   .whatsapp-icon {
-    bottom: 110px;
+    bottom: 120px;
     right: 44px;
   }
 }
@@ -289,16 +289,20 @@ body {
 /* ================= SOLO PC ================= */
 @media (min-width: 1024px) {
 
+  .global-header {
+    top: 22px;            /* sube otro poco */
+  }
+
   .book {
-    margin-top: 140px;   /* ajuste fino PC */
+    margin-top: 100px;    /* equilibrio perfecto */
   }
 
   .global-footer {
-    bottom: 26px;
+    bottom: 22px;
   }
 
   .whatsapp-icon {
-    bottom: 120px;
+    bottom: 130px;
     right: 52px;
   }
 }
