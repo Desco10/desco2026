@@ -270,8 +270,8 @@ body {
 
   /* CONTENIDO: sube, pero sin cortar páginas */
   .book {
-    padding-top: 170px;     /* ⬅ sube el contenido real */
-    padding-bottom: 170px;  /* ⬅ deja espacio para el footer */
+    padding-top: 150px;     /* ⬅ sube el contenido real */
+    padding-bottom: 150px;  /* ⬅ deja espacio para el footer */
   }
 
   /* FOOTER: completamente debajo del libro */
