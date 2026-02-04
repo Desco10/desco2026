@@ -309,21 +309,15 @@ body {
 }
 
 
-/* ================= AJUSTE FINO HEADER (SOLO PC / TABLET) ================= */
+/* ===== HEADER · AJUSTE FINAL SOLO PC / TABLET ===== */
 @media (min-width: 768px) {
-
   .global-header {
-    top: 0;                          /* lo dejamos neutro */
-    transform: translate(-50%, -12px); /* ⬅ sube visualmente */
+    transform: translateX(-50%) translateY(-32px);
   }
-
 }
 
 @media (min-width: 1024px) {
-
   .global-header {
-    top: 0;
-    transform: translate(-50%, -18px); /* ⬅ un poco más en PC */
+    transform: translateX(-50%) translateY(-42px);
   }
-
 }
