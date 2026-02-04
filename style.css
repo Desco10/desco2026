@@ -260,64 +260,29 @@ body {
 
 
 
-/* ================= AJUSTE DEFINITIVO PC / TABLET ================= */
+/* ===== AJUSTE FINO HEADER · SOLO PC / TABLET · SEGURO ===== */
 @media (min-width: 768px) {
 
-  /* HEADER: más arriba, fuera del contenido */
+  /* NO movemos el header completo */
   .global-header {
-    top: 2px;
+    transform: none !important;
+    top: auto !important;
   }
 
-  /* CONTENIDO: sube, pero sin cortar páginas */
-  .book {
-    padding-top: 150px;     /* ⬅ sube el contenido real */
-    padding-bottom: 150px;  /* ⬅ deja espacio para el footer */
-  }
-
-  /* FOOTER: completamente debajo del libro */
-  .global-footer {
-    bottom: 12px;
-  }
-
-  /* WhatsApp más cerca del libro */
-  .whatsapp-icon {
-    bottom: 150px;
-    right: 52px;
-  }
-}
-
-/* ================= SOLO PC ================= */
-@media (min-width: 1024px) {
-
-  .global-header {
-    top: 6px;               /* ⬅ aún más arriba */
-  }
-
-  .book {
-    padding-top: 180px;     /* ⬅ espacio real arriba */
-    padding-bottom: 180px;  /* ⬅ footer nunca invade */
-  }
-
-  .global-footer {
-    bottom: 8px;            /* ⬅ claramente fuera del book */
-  }
-
-  .whatsapp-icon {
-    bottom: 170px;
-    right: 58px;
-  }
-}
-
-
-/* ===== AJUSTE FINO: SOLO BAJAR EL LOGO (PC / TABLET) ===== */
-@media (min-width: 768px) {
-  .global-logo {
-    margin-top: 6px; /* baja el logo sin tocar el texto */
+  /* Bajamos SOLO el logo, sin afectar texto ni layout */
+  .global-header .global-logo {
+    margin-top: 8px;   /* ajuste suave */
   }
 }
 
 @media (min-width: 1024px) {
-  .global-logo {
-    margin-top: 10px; /* un poco más en PC grande */
+
+  .global-header {
+    transform: none !important;
+    top: auto !important;
+  }
+
+  .global-header .global-logo {
+    margin-top: 12px;  /* un poco más en PC */
   }
 }
