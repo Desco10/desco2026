@@ -260,67 +260,50 @@ body {
 
 
 
-/* ================= AJUSTE FINO PC / TABLET ================= */
+/* ================= AJUSTE DEFINITIVO PC / TABLET ================= */
 @media (min-width: 768px) {
 
-  /* HEADER: sube un poco más */
+  /* HEADER: más arriba, fuera del contenido */
   .global-header {
-    top: 28px;
+    top: 10px;
   }
 
-  /* BOOK: subir ~1cm sin cortar */
+  /* CONTENIDO: sube, pero sin cortar páginas */
   .book {
-    margin-top: 90px;     /* antes era demasiado */
-    padding-top: 0;
+    padding-top: 160px;     /* ⬅ sube el contenido real */
+    padding-bottom: 160px;  /* ⬅ deja espacio para el footer */
   }
 
-  /* FOOTER: más abajo, fuera del contenido */
+  /* FOOTER: completamente debajo del libro */
   .global-footer {
-    bottom: 24px;
+    bottom: 12px;
   }
 
-  /* WHATSAPP: más cerca del book */
+  /* WhatsApp más cerca del libro */
   .whatsapp-icon {
-    bottom: 120px;
-    right: 44px;
-  }
-}
-
-/* ================= ESPACIO REAL PARA HEADER (PC / TABLET) ================= */
-@media (min-width: 768px) {
-
-  /* damos espacio arriba al libro */
-  .book {
-    padding-top: 120px;   /* ← AQUÍ está la clave */
-    padding-bottom: 110px;
-  }
-
-  /* footer un poco más abajo */
-  .global-footer {
-    bottom: 26px;
-  }
-
-  /* whatsapp más cerca del contenido */
-  .whatsapp-icon {
-    bottom: 120px;
-    right: 48px;
+    bottom: 150px;
+    right: 52px;
   }
 }
 
 /* ================= SOLO PC ================= */
 @media (min-width: 1024px) {
 
+  .global-header {
+    top: 6px;               /* ⬅ aún más arriba */
+  }
+
   .book {
-    padding-top: 140px;   /* ← sube el contenido SIN romper nada */
-    padding-bottom: 120px;
+    padding-top: 180px;     /* ⬅ espacio real arriba */
+    padding-bottom: 180px;  /* ⬅ footer nunca invade */
   }
 
   .global-footer {
-    bottom: 22px;
+    bottom: 8px;            /* ⬅ claramente fuera del book */
   }
 
   .whatsapp-icon {
-    bottom: 130px;
-    right: 54px;
+    bottom: 170px;
+    right: 58px;
   }
 }
