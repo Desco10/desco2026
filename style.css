@@ -335,3 +335,11 @@ body {
     transform: translateX(-50%) translateZ(0);
   }
 }
+
+
+/* ===== FIX DEFINITIVO: EVITAR SALTO POR SCROLLBAR (PC / TABLET) ===== */
+@media (min-width: 768px) {
+  html {
+    overflow-y: scroll; /* fuerza la barra SIEMPRE */
+  }
+}
