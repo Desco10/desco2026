@@ -286,15 +286,33 @@ body {
   }
 }
 
+/* ================= ESPACIO REAL PARA HEADER (PC / TABLET) ================= */
+@media (min-width: 768px) {
+
+  /* damos espacio arriba al libro */
+  .book {
+    padding-top: 120px;   /* ← AQUÍ está la clave */
+    padding-bottom: 110px;
+  }
+
+  /* footer un poco más abajo */
+  .global-footer {
+    bottom: 26px;
+  }
+
+  /* whatsapp más cerca del contenido */
+  .whatsapp-icon {
+    bottom: 120px;
+    right: 48px;
+  }
+}
+
 /* ================= SOLO PC ================= */
 @media (min-width: 1024px) {
 
-  .global-header {
-    top: 22px;            /* sube otro poco */
-  }
-
   .book {
-    margin-top: 100px;    /* equilibrio perfecto */
+    padding-top: 140px;   /* ← sube el contenido SIN romper nada */
+    padding-bottom: 120px;
   }
 
   .global-footer {
@@ -303,6 +321,6 @@ body {
 
   .whatsapp-icon {
     bottom: 130px;
-    right: 52px;
+    right: 54px;
   }
 }
