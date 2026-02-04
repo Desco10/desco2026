@@ -314,3 +314,13 @@ body {
 }
 
 
+/* ===== FIX ESTRUCTURAL REAL · PC / TABLET ===== */
+@media (min-width: 768px) {
+
+  .book {
+    height: auto;          /* 🔑 rompe el conflicto */
+    min-height: 92vh;      /* mantiene proporción */
+    padding-top: 160px;    /* espacio real para header */
+    padding-bottom: 160px; /* espacio real para footer */
+  }
+}
