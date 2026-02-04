@@ -265,7 +265,7 @@ body {
 
   /* HEADER: más arriba, fuera del contenido */
   .global-header {
-    top: 6px;
+    top: 2px;
   }
 
   /* CONTENIDO: sube, pero sin cortar páginas */
