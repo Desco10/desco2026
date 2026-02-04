@@ -312,3 +312,17 @@ body {
     overflow-x: hidden;
   }
 }
+
+
+/* ===== ESPACIO REAL PARA HEADER (PC / TABLET) ===== */
+@media (min-width: 768px) {
+  .book {
+    padding-top: 160px; /* espacio suficiente para que no lo invada el header */
+  }
+}
+
+@media (min-width: 1024px) {
+  .book {
+    padding-top: 180px; /* un poco más en desktop grande */
+  }
+}
