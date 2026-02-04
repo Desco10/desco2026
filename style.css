@@ -307,3 +307,23 @@ body {
     right: 58px;
   }
 }
+
+
+/* ================= AJUSTE FINO HEADER (SOLO PC / TABLET) ================= */
+@media (min-width: 768px) {
+
+  .global-header {
+    top: 0;                          /* lo dejamos neutro */
+    transform: translate(-50%, -12px); /* ⬅ sube visualmente */
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .global-header {
+    top: 0;
+    transform: translate(-50%, -18px); /* ⬅ un poco más en PC */
+  }
+
+}
