@@ -327,3 +327,11 @@ body {
     top: -8px;  /* un poco más arriba en PC grande */
   }
 }
+
+/* ===== FIX SOBRESALTO HEADER AL FLIP (PC / TABLET) ===== */
+@media (min-width: 768px) {
+  .global-header {
+    will-change: transform;
+    transform: translateX(-50%) translateZ(0);
+  }
+}
